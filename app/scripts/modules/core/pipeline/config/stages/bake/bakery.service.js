@@ -8,7 +8,7 @@ module.exports = angular.module('spinnaker.core.pipeline.stage.bake.service', []
 
     function getRegions(provider) {
       if (!provider || provider === 'aws') {
-        return $q.when(['us-east-1', 'us-west-1', 'us-west-2', 'eu-west-1']);
+        return $q.when(['us-gov-west-1']);
       }
       if (provider === 'gce') {
         return $q.when(['asia-east1', 'us-central1', 'europe-west1']);
@@ -16,7 +16,7 @@ module.exports = angular.module('spinnaker.core.pipeline.stage.bake.service', []
     }
 
     function getBaseOsOptions() {
-      return $q.when(['trusty', 'ubuntu', 'centos']);
+      return $q.when(['RHEL', 'ubuntu']);
     }
 
     function getBaseLabelOptions() {
@@ -28,7 +28,7 @@ module.exports = angular.module('spinnaker.core.pipeline.stage.bake.service', []
     }
 
     function getStoreTypes() {
-      return $q.when(['ebs', 's3', 'docker']);
+      return $q.when(['ebs']);
     }
 
     return {
